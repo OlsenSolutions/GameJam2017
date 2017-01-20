@@ -6,7 +6,8 @@ public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
 
 	[Range(0,100)]
 	private int hp=100;
-	
+	private int hunger=0;
+	 
 	
 	public int Hp {
 		get{return hp;}
@@ -27,6 +28,27 @@ public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
 			}
 		}
 	}
+
+
+	public int Hunger {
+		get{return hunger;}
+
+		set{
+			if(value>=100)
+			{
+				hunger=value;
+				//SetSlider();
+				Die();
+			}
+			else
+			{
+
+				hunger=value;
+				//SetSlider();
+
+			}
+		}
+	}
 	
 
 	
@@ -43,12 +65,7 @@ public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
 
 	public void Select()
 	{
-		if (GameManager.Instance.selectedCharacter != gameObject.GetComponent<CharacterBase> ()) {
-			if(GameManager.Instance.selectedCharacter!=null)
-			GameManager.Instance.selectedCharacter.Deselect();
-			fillImage.enabled = true;
-			GameManager.Instance.selectedCharacter = gameObject.GetComponent<CharacterBase>();
-		}
+		
 
 		
 	}
@@ -57,7 +74,7 @@ public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
 
 	{
 		fillImage.enabled = false;
-		GameManager.Instance.selectedCharacter = null;
+
 	}
 
 	public Slider slider;

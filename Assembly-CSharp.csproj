@@ -47,12 +47,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CharacterScipts\CharacterBase.cs" />
-     <Compile Include="Assets\Scripts\CharacterScipts\Enemy.cs" />
+     <Compile Include="Assets\Scripts\CharacterScipts\Player.cs" />
+     <Compile Include="Assets\Scripts\Interfaces\ICollectible.cs" />
      <Compile Include="Assets\Scripts\Interfaces\IDamageable.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ISelectable.cs" />
+     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\InputManager.cs" />
-     <Compile Include="Assets\Scripts\MapGenerator.cs" />
-     <Compile Include="Assets\Scripts\MeshGenerator.cs" />
+     <Compile Include="Assets\Scripts\Resources\Fish.cs" />
+     <Compile Include="Assets\Scripts\Resources\Tree.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity 5.5/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
