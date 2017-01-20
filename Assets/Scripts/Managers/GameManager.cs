@@ -4,7 +4,11 @@ using UnityEngine;
 
 public  class GameManager : MonoBehaviour {
 
+	void Start()
+	{
+		StartCoroutine ("HungerStrikes");
 
+	}
 
 	private static GameManager instance;
 	public static GameManager Instance
@@ -24,6 +28,14 @@ public  class GameManager : MonoBehaviour {
 	public int waveNumber=0;
 	public int boatPlanks =0;
 	public Player player;
-	public ISelectable selected;
+	public IClickable selected;
+
+	IEnumerator HungerStrikes()
+	{
+		for(;;) {
+			player.GetHungry (1);
+			yield return new WaitForSeconds(1.0f);
+		}
+	}
 
 }

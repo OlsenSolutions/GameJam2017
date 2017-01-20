@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public interface ISelectable {
+public interface IClickable {
 
-	void Select();
+	void Click();
 	
 
 
