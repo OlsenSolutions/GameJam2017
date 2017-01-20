@@ -19,17 +19,17 @@ public class InputManager : MonoBehaviour {
 				MonoBehaviour[] list = hitInfo.transform.gameObject.GetComponents<MonoBehaviour>();
 				foreach(MonoBehaviour mb in list)
 				{
-					if (mb is ISelectable)
+					if (mb is IClickable)
 					{
-						ISelectable selected = mb as ISelectable;
-						selected.Select ();
+						IClickable selected = mb as IClickable;
+						selected.Click ();
 					}
 				}
 
 
 			}
 		}
-
+		/*
 		if (Input.GetMouseButtonUp (1)) {
 			RaycastHit hitInfo = new RaycastHit();
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
@@ -43,5 +43,6 @@ public class InputManager : MonoBehaviour {
 				character.Hp+=5;
 			}
 		}
+		*/
 	}
 }

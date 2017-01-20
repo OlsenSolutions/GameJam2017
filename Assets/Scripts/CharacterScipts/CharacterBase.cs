@@ -2,79 +2,45 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
+public class CharacterBase : MonoBehaviour, IClickable {
 
 	[Range(0,100)]
-	private int hp=100;
-	private int hunger=0;
+	private int hunger=100;
+
 	 
 	
-	public int Hp {
-		get{return hp;}
+	public int Hunger {
+		get{return hunger;}
 		
 		set{
 			if(value<=0)
 			{
-				hp=value;
+				hunger=value;
 				SetSlider();
-				Die();
+
 			}
 			else
 			{
 				
-				hp=value;
+				hunger=value;
 				SetSlider();
 				
 			}
 		}
 	}
 
+	public void Click()
+	{
 
-	public int Hunger {
-		get{return hunger;}
-
-		set{
-			if(value>=100)
-			{
-				hunger=value;
-				//SetSlider();
-				Die();
-			}
-			else
-			{
-
-				hunger=value;
-				//SetSlider();
-
-			}
-		}
 	}
+
 	
 
 	
-	public void TakeDamage(int n)
+	public void GetHungry(int n)
 	{
-		Hp -= n;
-		
-	}
-	
-	public void Die()
-	{
-		
-	}
-
-	public void Select()
-	{
-		
-
-		
-	}
-
-	public void Deselect ()
-
-	{
-		fillImage.enabled = false;
-
+		Hunger -= n;
+		SetSlider();
 	}
 
 	public Slider slider;
@@ -94,8 +60,8 @@ public class CharacterBase : MonoBehaviour, ISelectable, IDamageable {
 	public void SetSlider()
 	{
 		if (slider != null) {
-			slider.value = hp;
-			fillImage.color = Color.Lerp (Color.red, Color.green, hp / 100.0f);
+			slider.value = hunger;
+			fillImage.color = Color.Lerp (Color.red, Color.green, hunger / 100.0f);
 		}
 	}
 }
