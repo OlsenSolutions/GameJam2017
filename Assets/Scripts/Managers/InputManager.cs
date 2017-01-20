@@ -14,14 +14,20 @@ public class InputManager : MonoBehaviour {
 			RaycastHit hitInfo = new RaycastHit();
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if(hitInfo.transform!=null)
-			if(hitInfo.transform.gameObject.GetComponent<CharacterBase>()!=null)
-				
+			if(hitInfo.transform.gameObject.GetComponent<MonoBehaviour>()!=null)
+			{
+				MonoBehaviour[] list = hitInfo.transform.gameObject.GetComponents<MonoBehaviour>();
+				foreach(MonoBehaviour mb in list)
 				{
-				CharacterBase character=hitInfo.transform.gameObject.GetComponent<CharacterBase>();
-				character.Select();
-				character.Hp-=5;
-
+					if (mb is ISelectable)
+					{
+						ISelectable selected = mb as ISelectable;
+						selected.Select ();
+					}
 				}
+
+
+			}
 		}
 
 		if (Input.GetMouseButtonUp (1)) {
@@ -29,7 +35,7 @@ public class InputManager : MonoBehaviour {
 			bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
 			if(hitInfo.transform!=null)
 				//if(hitInfo.transform.gameObject.layer==LayerMask.NameToLayer("Enemy"))
-				if(hitInfo.transform.gameObject.GetComponent<CharacterBase>()!=null)
+			if(hitInfo.transform.gameObject.GetComponent<MonoBehaviour>()!=null)
 					
 			{
 				CharacterBase character=hitInfo.transform.gameObject.GetComponent<CharacterBase>();
