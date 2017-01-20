@@ -38,7 +38,9 @@ public class Tree : MonoBehaviour {
 		else
 			return;
 
-		int treeId = Mathf.CeilToInt(growthTime/growthTimePassed);
+
+		float stepLifeTime = growthTime / treeStages.Count;
+		int treeId = (int)(growthTimePassed/stepLifeTime);
 
 		for (int i = 0; i < treeStages.Count; i++)
 		{

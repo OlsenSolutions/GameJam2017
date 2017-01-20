@@ -265,21 +265,21 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472890526362814}
-  m_Mesh: {fileID: 4300000, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
+  m_Mesh: {fileID: 4300008, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
 --- !u!33 &33840814350124000
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1749549828309350}
-  m_Mesh: {fileID: 4300002, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
+  m_Mesh: {fileID: 4300006, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
 --- !u!33 &33861401632327260
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1357373744752974}
-  m_Mesh: {fileID: 4300004, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
+  m_Mesh: {fileID: 4300010, guid: 525275178a91cc644ba16c7b1b0e3c81, type: 3}
 --- !u!65 &65836536656903844
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -303,3 +303,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdcd3ac8c73aa6048a10d603b85c20e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growthTimePassed: 0
