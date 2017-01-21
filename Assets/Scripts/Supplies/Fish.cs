@@ -11,7 +11,6 @@ public class Fish :  MonoBehaviour, ICollectible, IClickable  {
 
 	public void Collect()
 	{
-		GameManager.Instance.player.Hunger+=50;
 		GameObject.Destroy (this.gameObject);
 
 	}

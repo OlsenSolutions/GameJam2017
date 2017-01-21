@@ -21,8 +21,8 @@ public class Tree : MonoBehaviour {
 
 	void Awake ()
 	{
-		growthTimePassed = Random.Range (0.0f, 5.0f);
-		growthTime=Random.Range (15.0f, 25.0f);
+		growthTimePassed = Random.Range (60.0f, 70.0f);
+		growthTime=Random.Range (70.0f, 100.0f);
 		stagesPrefab = transform.Find("Stages");
 
 		for (int i = 0; i < stagesPrefab.childCount; i++)
@@ -33,8 +33,8 @@ public class Tree : MonoBehaviour {
 
 	public void Reset()
 	{
-		growthTimePassed = Random.Range (0.0f, 10.0f);
-		growthTime=Random.Range (10.0f, 35.0f);
+		growthTimePassed = 0;
+		growthTime=Random.Range (50.0f, 100.0f);
 	}
 
 	void Update()

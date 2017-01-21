@@ -42,66 +42,70 @@ namespace CompleteProject
 		// Update is called once per frame
 		void Update () 
 		{
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			RaycastHit hit;
-			if (Input.GetButtonDown ("Fire1")) 
-			{
-				targetCollectible = null;
-				if (Physics.Raycast (ray, out hit, 500)) {
-					//Debug.Log (hit.collider.gameObject.name);
-					if (hit.collider.CompareTag ("Ground")) {
-						
+			if (GameManager.Instance.selectedPlayer == this.gameObject.GetComponent<Player> ()) {
+				Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+				RaycastHit hit;
+				if (Input.GetButtonDown ("Fire1")) {
+					targetCollectible = null;
+					if (Physics.Raycast (ray, out hit, 500)) {
+						if (hit.collider.CompareTag ("Player")) {
+							GameManager.Instance.selectedPlayer = hit.collider.gameObject.GetComponent<Player> ();
 
-
-						navMeshAgent.destination = hit.point;
-						navMeshAgent.Resume ();
-						//ResetAnimations ();
-						anim.SetBool ("Walking", true);
-						anim.SetBool ("Idle", false);
-					} else if (hit.collider.CompareTag ("Fish")) {
+							}
+						else if (hit.collider.CompareTag ("Ground")) {
+							navMeshAgent.destination = hit.point;
+							navMeshAgent.Resume ();
+							//ResetAnimations ();
+							anim.SetBool ("Walking", true);
+							anim.SetBool ("Idle", false);
+						} else if (hit.collider.CompareTag ("Fish")) {
 							
-						navMeshAgent.destination = hit.point;
-						navMeshAgent.Resume ();
-						distanceToTarget = Vector3.Distance (gameObject.transform.position, hit.collider.gameObject.transform.position);
-						if (distanceToTarget < FishingDistance) {
-							hit.collider.gameObject.GetComponent<Fish> ().Collect ();
-							targetCollectible = null;
-							navMeshAgent.Stop ();
-						} else {
-							targetCollectible = hit.collider.gameObject.GetComponent<Fish> ();
-						}
-						
-					} else if (hit.collider.CompareTag ("Tree")) {
-						if (GameManager.Instance.player.Compartment == null) {
 							navMeshAgent.destination = hit.point;
 							navMeshAgent.Resume ();
 							distanceToTarget = Vector3.Distance (gameObject.transform.position, hit.collider.gameObject.transform.position);
-							if (distanceToTarget < gatherWoodDistance) {
-								hit.collider.gameObject.GetComponent<Wood> ().Collect ();
+							if (distanceToTarget < FishingDistance) {
+								hit.collider.gameObject.GetComponent<Fish> ().Collect ();
+								GetComponent<Player> ().Hunger += 50;
+								targetCollectible = null;
 								navMeshAgent.Stop ();
 							} else {
-								targetCollectible = hit.collider.gameObject.GetComponent<Wood> ();
+								targetCollectible = hit.collider.gameObject.GetComponent<Fish> ();
 							}
-						}
-					} else if (hit.collider.CompareTag ("Storage")) {
-						if (GameManager.Instance.player.Compartment != null) {
-							navMeshAgent.destination = hit.point;
-							navMeshAgent.Resume ();
-							distanceToTarget = Vector3.Distance (gameObject.transform.position, hit.collider.gameObject.transform.position);
-							if (distanceToTarget < StoreDistance) {
-								(GameManager.Instance.player.Compartment as IStorable).Store ();
-								GameManager.Instance.player.Compartment = null;
-								navMeshAgent.Stop ();
-							} else {
-								targetStore = hit.collider.gameObject;
+						
+						} else if (hit.collider.CompareTag ("Tree")) {
+							if (GameManager.Instance.selectedPlayer.Compartment == null) {
+								navMeshAgent.destination = hit.point;
+								navMeshAgent.Resume ();
+								distanceToTarget = Vector3.Distance (gameObject.transform.position, hit.collider.gameObject.transform.position);
+								if (distanceToTarget < gatherWoodDistance) {
+								
+									GetComponent<Player> ().Compartment = hit.collider.gameObject.GetComponent<Wood> ();
+									hit.collider.gameObject.GetComponent<Wood> ().Collect ();
+									navMeshAgent.Stop ();
+								} else {
+									targetCollectible = hit.collider.gameObject.GetComponent<Wood> ();
+								}
+							}
+						} else if (hit.collider.CompareTag ("Storage")) {
+							if (GameManager.Instance.selectedPlayer.Compartment != null) {
+								navMeshAgent.destination = hit.point;
+								navMeshAgent.Resume ();
+								distanceToTarget = Vector3.Distance (gameObject.transform.position, hit.collider.gameObject.transform.position);
+								if (distanceToTarget < StoreDistance) {
+									(GameManager.Instance.selectedPlayer.Compartment as IStorable).Store ();
+									GameManager.Instance.selectedPlayer.Compartment = null;
+									navMeshAgent.Stop ();
+								} else {
+									targetStore = hit.collider.gameObject;
 
-							}
+								}
 							
+							}
 						}
 					}
 				}
-			}
 
+			}
 			if (!navMeshAgent.pathPending)
 			{
 				if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance)
@@ -154,7 +158,7 @@ namespace CompleteProject
 				if (distanceToTarget < StoreDistance) {
 					targetStore = null;
 					navMeshAgent.Stop ();
-					GameManager.Instance.player.Compartment.Store ();
+					GameManager.Instance.selectedPlayer.Compartment.Store ();
 				}
 			}
 
