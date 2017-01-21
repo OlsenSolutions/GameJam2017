@@ -513,6 +513,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114101237994083874, guid: a3f2ff47d27dc594fa0671e801b4dc43,
+        type: 2}
+      propertyPath: Container
+      value: 
+      objectReference: {fileID: 196266844}
     - target: {fileID: 224307264905569334, guid: a3f2ff47d27dc594fa0671e801b4dc43,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -523,36 +528,16 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 54333140439341460, guid: a3f2ff47d27dc594fa0671e801b4dc43,
+    - target: {fileID: 224054289348151216, guid: a3f2ff47d27dc594fa0671e801b4dc43,
         type: 2}
-      propertyPath: m_UseGravity
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 195490150997174810, guid: a3f2ff47d27dc594fa0671e801b4dc43,
+    - target: {fileID: 224054289348151216, guid: a3f2ff47d27dc594fa0671e801b4dc43,
         type: 2}
-      propertyPath: m_Height
-      value: 2
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 195490150997174810, guid: a3f2ff47d27dc594fa0671e801b4dc43,
-        type: 2}
-      propertyPath: m_Acceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 195490150997174810, guid: a3f2ff47d27dc594fa0671e801b4dc43,
-        type: 2}
-      propertyPath: m_Speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114101237994083874, guid: a3f2ff47d27dc594fa0671e801b4dc43,
-        type: 2}
-      propertyPath: Container
-      value: 
-      objectReference: {fileID: 196266844}
-    - target: {fileID: 95465010152500510, guid: a3f2ff47d27dc594fa0671e801b4dc43,
-        type: 2}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5465ca9f0651f41c6bb86a85b9e0d49a, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a3f2ff47d27dc594fa0671e801b4dc43, type: 2}
   m_IsPrefabParent: 0
@@ -665,7 +650,7 @@ GameObject:
   m_TagString: Storage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &699912789
 MeshRenderer:
