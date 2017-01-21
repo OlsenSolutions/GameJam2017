@@ -108,13 +108,13 @@ namespace CompleteProject
 				{
 					if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
 					{
-						Debug.Log ("Finished");
+						//Debug.Log ("Finished");
 						anim.SetBool ("Walking", false);
 						anim.SetBool ("Idle", true);
 						//anim.SetBool ("Walking", false);
 
 						//if (anim.GetBool ("Chopping") || anim.GetBool ("Fishing") || anim.GetBool ("Walking")) {
-						Debug.Log ("Finished");
+						//Debug.Log ("Finished");
 						//	ResetAnimations ();
 						//	anim.SetBool ("Idle", true);
 						//}
