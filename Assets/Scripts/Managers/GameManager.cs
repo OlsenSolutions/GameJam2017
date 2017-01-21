@@ -4,9 +4,10 @@ using UnityEngine;
 
 public  class GameManager : MonoBehaviour {
 
-	void Start()
+	void Awake()
 	{
-		StartCoroutine ("HungerStrikes");
+		
+		//StartCoroutine ("HungerStrikes");
 
 	}
 
@@ -30,12 +31,6 @@ public  class GameManager : MonoBehaviour {
 	public Player player;
 	public IClickable selected;
 
-	IEnumerator HungerStrikes()
-	{
-		for(;;) {
-			player.GetHungry (1);
-			yield return new WaitForSeconds(1.0f);
-		}
-	}
+
 
 }

@@ -7,6 +7,6 @@ public class IMovableTo : MonoBehaviour, IClickable {
 	// Use this for initialization
 	public void Click()
 	{
-
+		//GameManager.Instance.player
 	}
 }

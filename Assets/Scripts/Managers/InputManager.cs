@@ -19,10 +19,17 @@ public class InputManager : MonoBehaviour {
 				MonoBehaviour[] list = hitInfo.transform.gameObject.GetComponents<MonoBehaviour>();
 				foreach(MonoBehaviour mb in list)
 				{
+
+					if (mb is IMovableTo)
+					{
+						IMovableTo selected = mb as IMovableTo;
+						selected.Click ();
+					}
 					if (mb is IClickable)
 					{
 						IClickable selected = mb as IClickable;
 						selected.Click ();
+						return;
 					}
 				}
 

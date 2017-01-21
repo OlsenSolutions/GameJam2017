@@ -8,14 +8,17 @@ public class CharacterBase : MonoBehaviour, IClickable {
 	private int hunger=100;
 
 	 
-	
+
+
 	public int Hunger {
 		get{return hunger;}
 		
 		set{
 			if(value<=0)
 			{
+				value = 0;
 				hunger=value;
+			
 				SetSlider();
 
 			}
@@ -23,11 +26,14 @@ public class CharacterBase : MonoBehaviour, IClickable {
 			{
 				
 				hunger=value;
+				if (hunger > 100)
+					hunger = 100;
 				SetSlider();
 				
 			}
 		}
 	}
+
 
 	public void Click()
 	{
@@ -48,12 +54,12 @@ public class CharacterBase : MonoBehaviour, IClickable {
 	
 
 	
-	
+
 	void Awake()
 	{
 		if (slider != null) {
 			SetSlider ();
-			fillImage.enabled = false;
+			fillImage.enabled = true;
 		}
 	}
 
