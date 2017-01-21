@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4852102967064478}
   - component: {fileID: 33961075721808924}
   - component: {fileID: 23199598310027380}
+  - component: {fileID: 65699087388176398}
   m_Layer: 0
   m_Name: Cactus3
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4852102967064478
 Transform:
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330600314688880}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 42.890633, y: 1.2368536, z: -9.74974}
+  m_LocalPosition: {x: -26.9, y: 4.06, z: -46.88}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,3 +80,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1330600314688880}
   m_Mesh: {fileID: 4300000, guid: 7dad57b5776338340bf488cd934b688f, type: 3}
+--- !u!65 &65699087388176398
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1330600314688880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3018717, y: 1.51, z: 0.405115}
+  m_Center: {x: -0.17887215, y: 0.755, z: -0.2025575}
