@@ -1,14 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CharacterScipts\ClickToMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\RPG Character Animation Pack\Elements\ImageEffects\Scripts\BloomOptimized.cs">
     <Files>
-      <File FileName="Assets\Scripts\CharacterScipts\Player.cs" Line="12" Column="30" />
-      <File FileName="Assets\Scripts\CharacterScipts\CharacterBase.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CharacterScipts\ItemInHandActivator.cs" Line="15" Column="5" />
-      <File FileName="Assets\Scripts\Buildings\Ship.cs" Line="7" Column="28" />
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="35" Column="15" />
-      <File FileName="Assets\Scripts\Supplies\Wood.cs" Line="16" Column="31" />
+      <File FileName="Assets\Scripts\CharacterScipts\ItemInHandActivator.cs" Line="22" Column="32" />
       <File FileName="Assets\Scripts\CharacterScipts\ClickToMove.cs" Line="1" Column="1" />
+      <File FileName="Assets\CollectItemAfterAnimation.cs" Line="20" Column="53" />
+      <File FileName="Assets\RPG Character Animation Pack\Elements\ImageEffects\Scripts\BloomOptimized.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

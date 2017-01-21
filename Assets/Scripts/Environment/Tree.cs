@@ -12,21 +12,29 @@ public class Tree : MonoBehaviour {
 	/// <summary>
 	/// The growth time in seconds.
 	/// </summary>
-	static float growthTime = 10;
+	static float growthTime = 20;
 
 	/// <summary>
 	/// The growth time passed in seconds.
 	/// </summary>
-	public float growthTimePassed = 0;
+	public float growthTimePassed;
 
 	void Awake ()
 	{
+		growthTimePassed = Random.Range (60.0f, 70.0f);
+		growthTime=Random.Range (70.0f, 100.0f);
 		stagesPrefab = transform.Find("Stages");
 
 		for (int i = 0; i < stagesPrefab.childCount; i++)
 		{
 			treeStages.Add(stagesPrefab.Find((i+1).ToString()).gameObject);
 		}
+	}
+
+	public void Reset()
+	{
+		growthTimePassed = 0;
+		growthTime=Random.Range (50.0f, 100.0f);
 	}
 
 	void Update()
