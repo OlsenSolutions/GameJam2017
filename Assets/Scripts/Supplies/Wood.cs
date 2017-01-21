@@ -13,7 +13,7 @@ public class Wood : MonoBehaviour, ICollectible, IStorable {
 	public void Store()
 	{
 		GameManager.Instance.player.Compartment = null;
-		GameManager.Instance.Wood++;
+		GameManager.Instance.Wood+=2;
 	}
 
 
