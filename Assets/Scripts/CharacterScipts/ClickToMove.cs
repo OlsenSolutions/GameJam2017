@@ -21,7 +21,7 @@ namespace CompleteProject
 		public GameObject targetStore;
 		public float gatherWoodDistance=3;
 		public float FishingDistance=6;
-		public float StoreDistance=6;
+		public float StoreDistance=10;
 
 
 
