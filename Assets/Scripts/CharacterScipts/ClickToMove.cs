@@ -196,8 +196,6 @@ namespace CompleteProject
 			anim.SetBool ("IsWalking", walking);
 			*/
 		}
-
-
 	}
-
+}
 }

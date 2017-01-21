@@ -9078,7 +9078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveNumber: 0
   boatPlanks: 0
-  player: {fileID: 356340383}
+  selectedPlayer: {fileID: 356340383}
   ship: {fileID: 1531574840}
   wave: {fileID: 0}
   timeToNextWave: 30
