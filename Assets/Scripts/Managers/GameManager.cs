@@ -63,7 +63,7 @@ public  class GameManager : MonoBehaviour {
 			if (value > ship.maxPlanksNumber)
 				value = ship.maxPlanksNumber;
 			wood = value;
-			ship.planksAddedNumber = wood;
+			ship.planksAddedNumber++;
 
 		}
 	}
