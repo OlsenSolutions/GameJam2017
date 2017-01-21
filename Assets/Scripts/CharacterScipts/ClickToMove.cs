@@ -7,8 +7,7 @@ namespace CompleteProject
 
 	public class ClickToMove : MonoBehaviour {
 
-
-
+		public string resourceToCarryName = "";
 		private Animator anim;
 		private NavMeshAgent navMeshAgent;
 		private Transform targetedEnemy;
@@ -18,6 +17,7 @@ namespace CompleteProject
 		private bool enemyClicked;
 		public float distanceToTarget = 0;
 		public ICollectible targetCollectible;
+		public ICollectible resourceBeingCollected;
 		public GameObject targetStore;
 		public float gatherWoodDistance=3;
 		public float FishingDistance=6;
@@ -28,15 +28,29 @@ namespace CompleteProject
 		void ResetAnimations()
 		{
 			anim.SetBool ("Walking", false);
-			anim.SetBool ("Ide", false);
+			anim.SetBool ("Idle", false);
+			anim.SetBool ("Chopping", false);
 			anim.SetBool ("Fishing", false);
-			anim.SetBool ("Walking", false);
+			//anim.SetBool ("Carry", false);
 		}
 		// Use this for initialization
 		void Awake () 
 		{
 			anim = GetComponent<Animator> ();
 			navMeshAgent = GetComponent<NavMeshAgent> ();
+		}
+
+		public void GatherResourcesWhenActionEnded()
+		{
+			if (anim.GetBool("Chopping"))
+				resourceToCarryName = "Planks";
+
+			ResetAnimations();
+			anim.SetBool("Carry", true);
+
+			resourceBeingCollected.Collect ();
+			resourceBeingCollected = null;
+			targetCollectible = null;
 		}
 
 		// Update is called once per frame
@@ -53,6 +67,9 @@ namespace CompleteProject
 
 							}
 						else if (hit.collider.CompareTag ("Ground")) {
+						navMeshAgent.destination = hit.point;
+						navMeshAgent.Resume ();
+						ResetAnimations ();
 							navMeshAgent.destination = hit.point;
 							navMeshAgent.Resume ();
 							//ResetAnimations ();
@@ -85,7 +102,7 @@ namespace CompleteProject
 								} else {
 									targetCollectible = hit.collider.gameObject.GetComponent<Wood> ();
 								}
-							}
+//							}
 						} else if (hit.collider.CompareTag ("Storage")) {
 							if (GameManager.Instance.selectedPlayer.Compartment != null) {
 								navMeshAgent.destination = hit.point;
@@ -113,9 +130,8 @@ namespace CompleteProject
 					if (!navMeshAgent.hasPath || navMeshAgent.velocity.sqrMagnitude == 0f)
 					{
 						//Debug.Log ("Finished");
-						anim.SetBool ("Walking", false);
+						ResetAnimations();
 						anim.SetBool ("Idle", true);
-						//anim.SetBool ("Walking", false);
 
 						//if (anim.GetBool ("Chopping") || anim.GetBool ("Fishing") || anim.GetBool ("Walking")) {
 						//Debug.Log ("Finished");
@@ -135,22 +151,19 @@ namespace CompleteProject
 				distanceToTarget = Vector3.Distance (gameObject.transform.position, (targetCollectible as MonoBehaviour).gameObject.transform.position);
 				if (targetCollectible is Fish) {
 					if (distanceToTarget < FishingDistance) {
-						
-						targetCollectible.Collect ();
+						resourceBeingCollected = targetCollectible;
+						ResetAnimations();
+						anim.SetTrigger ("Fishing");
 						navMeshAgent.Stop ();
-						targetCollectible = null;
 					}
 				}
 				else if(targetCollectible is Wood)
 				 {
 					if (distanceToTarget < gatherWoodDistance) {
-						anim.SetBool ("Idle", false);
-						anim.SetBool ("Walking", false);
-						anim.SetBool ("Fishing", false);
-						anim.SetTrigger ("Chop");
-						targetCollectible.Collect ();
+						resourceBeingCollected = targetCollectible;
+						ResetAnimations();
+						anim.SetTrigger ("Chopping");
 						navMeshAgent.Stop ();
-						targetCollectible = null;
 					}
 				}
 			} else if (targetStore != null) {
@@ -183,8 +196,6 @@ namespace CompleteProject
 			anim.SetBool ("IsWalking", walking);
 			*/
 		}
-
-
 	}
-
+}
 }

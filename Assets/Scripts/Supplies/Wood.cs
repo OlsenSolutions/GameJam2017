@@ -18,6 +18,4 @@ public class Wood : MonoBehaviour, ICollectible, IStorable {
 		GameManager.Instance.selectedPlayer.Compartment = null;
 		GameManager.Instance.Wood+=3;
 	}
-
-
 }
