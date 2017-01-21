@@ -24,7 +24,7 @@ public  class GameManager : MonoBehaviour {
 		}
 	}
 
-	public int fishes=0;
+	//public int fishes=0;
 	private int wood=0;
 	public int waveNumber=0;
 	public int boatPlanks =0;
