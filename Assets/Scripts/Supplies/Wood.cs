@@ -15,4 +15,6 @@ public class Wood : MonoBehaviour, ICollectible, IStorable {
 		GameManager.Instance.player.Compartment = null;
 		GameManager.Instance.wood++;
 	}
+
+public float gatherDistance = 3.0f;
 }
