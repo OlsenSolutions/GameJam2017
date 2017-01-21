@@ -23,10 +23,10 @@ GameObject:
   - component: {fileID: 23726226739700078}
   m_Layer: 0
   m_Name: RedTree
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4597829094644874
 Transform:

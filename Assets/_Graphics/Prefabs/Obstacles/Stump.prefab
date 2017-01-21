@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4853232693012012}
   - component: {fileID: 33379633220364454}
   - component: {fileID: 23946838725825304}
+  - component: {fileID: 64262367913367434}
   m_Layer: 0
   m_Name: Stump
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &4853232693012012
 Transform:
@@ -34,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843988927305912}
-  m_LocalRotation: {x: 0, y: 0, z: 0.07410845, w: 0.9972502}
-  m_LocalPosition: {x: -33.901, y: 0.05, z: 21.958}
+  m_LocalRotation: {x: -0, y: -0, z: 0.07410845, w: 0.9972502}
+  m_LocalPosition: {x: -42.010376, y: 2.4992187, z: 14.333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,4 +80,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843988927305912}
+  m_Mesh: {fileID: 4300000, guid: c7a59bf400668ca49b2d9ecc3a0771e4, type: 3}
+--- !u!64 &64262367913367434
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1843988927305912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c7a59bf400668ca49b2d9ecc3a0771e4, type: 3}
