@@ -1,47 +1,30 @@
 fileFormatVersion: 2
-guid: 525275178a91cc644ba16c7b1b0e3c81
-timeCreated: 1484944899
+guid: aadca3d48271f844f96d15e11ea17825
+timeCreated: 1484953040
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Mesh2_Group3_Group1_Model
-    100002: Mesh2_Group3_Group1_Model_001
-    100004: Mesh2_Group3_Group1_Model_002
-    100006: //RootNode
-    100008: Palm1
-    100010: Palm2
-    100012: Palm3
-    100014: Palm4
-    400000: Mesh2_Group3_Group1_Model
-    400002: Mesh2_Group3_Group1_Model_001
-    400004: Mesh2_Group3_Group1_Model_002
-    400006: //RootNode
-    400008: Palm1
-    400010: Palm2
-    400012: Palm3
-    400014: Palm4
-    2300000: Mesh2_Group3_Group1_Model
-    2300002: Mesh2_Group3_Group1_Model_001
-    2300004: Mesh2_Group3_Group1_Model_002
-    2300006: Palm1
-    2300008: Palm2
-    2300010: Palm3
-    2300012: Palm4
-    3300000: Mesh2_Group3_Group1_Model
-    3300002: Mesh2_Group3_Group1_Model_001
-    3300004: Mesh2_Group3_Group1_Model_002
-    3300006: Palm1
-    3300008: Palm2
-    3300010: Palm3
-    3300012: Palm4
-    4300000: Mesh2_Group3_Group1_Model_002
-    4300002: Mesh2_Group3_Group1_Model_001
-    4300004: Mesh2_Group3_Group1_Model
-    4300006: Palm2
-    4300008: Palm1
-    4300010: Palm3
-    4300012: Palm4
+    100000: //RootNode
+    100002: Fish1
+    100004: Fish2
+    100006: Fish3
+    400000: //RootNode
+    400002: Fish1
+    400004: Fish2
+    400006: Fish3
+    2300000: //RootNode
+    2300002: Fish1
+    2300004: Fish2
+    2300006: Fish3
+    3300000: //RootNode
+    3300002: Fish1
+    3300004: Fish2
+    3300006: Fish3
+    4300000: Plane
+    4300002: Fish3
+    4300004: Fish2
+    4300006: Fish1
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -64,8 +47,44 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
-    isReadable: 1
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 0
+      lastFrame: 154
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Fish1
+        weight: 1
+      - path: Fish2
+        weight: 1
+      - path: Fish3
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -75,7 +94,7 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
+    optimizeMeshForGPU: 0
     keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
