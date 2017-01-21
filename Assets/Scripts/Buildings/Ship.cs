@@ -7,7 +7,7 @@ public class Ship : MonoBehaviour {
 	public int planksAddedNumber = 0;
 	private int lastPlanksAddedNumber = 0;
 
-	private int maxPlanksNumber;
+	public int maxPlanksNumber;
 
 	private List<GameObject> addedPlanksGOs = new List<GameObject>();
 	private List<GameObject> notAddedPlanksGOs = new List<GameObject>();
