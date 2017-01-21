@@ -7,10 +7,12 @@ public class Player : CharacterBase {
 
 	private IStorable compartment;
 	public Image Container;
+	public Animator animator;
 
 	void Start()
 	{
 		StartCoroutine (HungerStrikes ());
+		animator = GetComponent<Animator> ();
 	}
 
 	public IStorable Compartment
