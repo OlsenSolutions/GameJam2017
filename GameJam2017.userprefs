@@ -1,12 +1,15 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Managers/WaveTimeManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Slider Menu - Free/Scripts/SliderMenu.cs">
     <Files>
       <File FileName="Assets/Scripts/CharacterScipts/Player.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CharacterScipts/CharacterBase.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CharacterScipts/ClickToMove.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Managers/ScoreManager.cs" Line="25" Column="1" />
-      <File FileName="Assets/Scripts/Managers/WaveTimeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Managers/WaveTimeManager.cs" Line="19" Column="2" />
+      <File FileName="Assets/Scripts/Managers/LoadLevelManager.cs" Line="35" Column="35" />
+      <File FileName="Assets/Menus/Scripts/ApplicationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Slider Menu - Free/Scripts/SliderMenu.cs" Line="73" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
