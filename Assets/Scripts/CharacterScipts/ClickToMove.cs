@@ -88,7 +88,7 @@ namespace CompleteProject
 		// Update is called once per frame
 		void Update()
 		{
-			if (GameManager.Instance.selectedPlayer == this.gameObject.GetComponent<Player>())
+			if (GameManager.Instance.SelectedPlayer == this.gameObject.GetComponent<Player>())
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
@@ -100,7 +100,7 @@ namespace CompleteProject
 						Debug.Log(hit.collider.gameObject.name);
 						if (hit.collider.CompareTag("Player"))
 						{
-							GameManager.Instance.selectedPlayer = hit.collider.gameObject.GetComponent<Player>();
+							GameManager.Instance.SelectedPlayer = hit.collider.gameObject.GetComponent<Player>();
 						}
 						else if (hit.collider.CompareTag("Ground"))
 						{
@@ -136,7 +136,7 @@ namespace CompleteProject
 						{
 							isWorking = false;
 
-							if (GameManager.Instance.selectedPlayer.Compartment == null)
+							if (GameManager.Instance.SelectedPlayer.Compartment == null)
 							{
 								navMeshAgent.destination = hit.point;
 								navMeshAgent.Resume();
@@ -155,15 +155,15 @@ namespace CompleteProject
 						{
 							isWorking = false;
 
-							if (GameManager.Instance.selectedPlayer.Compartment != null)
+							if (GameManager.Instance.SelectedPlayer.Compartment != null)
 							{
 								navMeshAgent.destination = hit.point;
 								navMeshAgent.Resume();
 								distanceToTarget = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
 								if (distanceToTarget < StoreDistance)
 								{
-									(GameManager.Instance.selectedPlayer.Compartment as IStorable).Store();
-									GameManager.Instance.selectedPlayer.Compartment = null;
+									(GameManager.Instance.SelectedPlayer.Compartment as IStorable).Store();
+									GameManager.Instance.SelectedPlayer.Compartment = null;
 									navMeshAgent.Stop();
 									ClearHandItem();
 									anim.SetBool("Carry", false);
@@ -233,7 +233,7 @@ namespace CompleteProject
 				{
 					targetStore = null;
 					navMeshAgent.Stop();
-					GameManager.Instance.selectedPlayer.Compartment.Store();
+					GameManager.Instance.SelectedPlayer.Compartment.Store();
 					ClearHandItem();
 					anim.SetBool("Carry", false);
 				}
@@ -261,9 +261,9 @@ namespace CompleteProject
 
 		public void ClearHandItem()
 		{
-			for (int i = 0; i < GameManager.Instance.selectedPlayer.itemHandle.childCount; i++)
+			for (int i = 0; i < GameManager.Instance.SelectedPlayer.itemHandle.childCount; i++)
 			{
-				GameManager.Instance.selectedPlayer.itemHandle.GetChild(i).gameObject.SetActive(false);
+				GameManager.Instance.SelectedPlayer.itemHandle.GetChild(i).gameObject.SetActive(false);
 			}
 		}
 	}
