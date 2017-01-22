@@ -67,18 +67,20 @@ namespace CompleteProject
 
 		public void GatherResourcesWhenActionEnded()
 		{
-			GetComponent<Player>().Compartment = resourceBeingCollected;
-			resourceToCarryName = "Planks";
+//			GetComponent<Player>().Compartment = resourceBeingCollected;
+//			resourceToCarryName = "Planks";
 			if (anim.GetBool("Chopping"))
 			{
 				GetComponent<Player>().Compartment = resourceBeingCollected;
 				resourceToCarryName = "Planks";
+				anim.SetBool("Carry", true);
 			}
 			else if (anim.GetBool("Fishing"))
+			{
 				GetComponent<Player>().Hunger += 50;
-
+			}
 			ResetAnimations();
-			anim.SetBool("Carry", true);
+
 
 			//resourceBeingCollected.Collect();
 			resourceBeingCollected = null;
