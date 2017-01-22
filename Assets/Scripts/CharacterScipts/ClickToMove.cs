@@ -21,8 +21,8 @@ namespace CompleteProject
 		public ICollectible targetCollectible;
 		public IStorable resourceBeingCollected;
 		public GameObject targetStore;
-		public float gatherWoodDistance = 3;
-		public float FishingDistance = 6;
+		public float gatherWoodDistance = 5;
+		public float FishingDistance = 10;
 		public float StoreDistance = 10;
 
 
@@ -240,7 +240,12 @@ namespace CompleteProject
 				{
 					targetStore = null;
 					navMeshAgent.Stop();
-					GameManager.Instance.SelectedPlayer.Compartment.Store();
+					GetComponent<Player>().Compartment.Store();
+					GetComponent<Player>().Compartment = null;
+						
+						
+						
+						
 					ClearHandItem();
 					anim.SetBool("Carry", false);
 				}

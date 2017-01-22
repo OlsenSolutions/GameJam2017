@@ -19,6 +19,8 @@ public  class GameManager : MonoBehaviour {
 
 
 		woodCounter.text = ship.planksAddedNumber.ToString ();
+		lifeSlider.value = selectedPlayer.Hunger;
+
 		if (timePassing) {
 			
 			timeToNextWave -= Time.deltaTime;
@@ -73,9 +75,15 @@ public  class GameManager : MonoBehaviour {
 	public Text timecounter;
 	public Text woodCounter;
 	public float timeBetweenWaves = 5.0f;
+	public GameObject playerPrefab;
+	public Slider lifeSlider;
 
 	public Player SelectedPlayer
 	{
+
+
+
+
 		get{ return selectedPlayer;}
 		set{
 			if (selectedPlayer != null) {
@@ -105,17 +113,7 @@ public  class GameManager : MonoBehaviour {
 		}
 	}
 
-	IEnumerator Tsunami()
-	{
-		for(int i=0;i<1000;i++)
-		{
-			wave.transform.position = new Vector3 (wave.transform.position.x + 0.5f, wave.transform.position.y, wave.transform.position.z );
-			yield return new WaitForSeconds(0.1f);
-			if (i == 1000) {
-				timePassing = true;
-			}
-		}
-	}
+
 
 	void Wave()
 	{
@@ -128,8 +126,9 @@ public  class GameManager : MonoBehaviour {
 			t.Reset ();
 		}
 		GameManager.instance.Wood -= 5;
-		timeToNextWave = 30.0f;
+		timeToNextWave = 60.0f;
 		//ship.planksAddedNumber = -5;
+		Instantiate(playerPrefab,new Vector3(-40,-1,5), Quaternion.identity);
 	}
 
 	public void GameOver()

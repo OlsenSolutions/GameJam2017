@@ -9,6 +9,8 @@ public class Player : CharacterBase {
 	private IStorable compartment;
 	public Image Container;
 	public Animator animator;
+	private int hungerRate=3;
+
 
 	public Transform itemHandle;
 
@@ -17,6 +19,7 @@ public class Player : CharacterBase {
 		slider.gameObject.SetActive (false);
 		StartCoroutine (HungerStrikes ());
 		animator = GetComponent<Animator> ();
+		//hungerRate = Random.Range (2, 4);
 	}
 
 
@@ -43,7 +46,7 @@ public class Player : CharacterBase {
 	IEnumerator HungerStrikes()
 	{
 		for(;;) {
-			GetHungry (2);
+			GetHungry (hungerRate);
 			yield return new WaitForSeconds(1.0f);
 			if (Hunger <= 0) {
 				Die ();
