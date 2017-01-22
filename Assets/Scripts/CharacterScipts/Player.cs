@@ -44,6 +44,15 @@ public class Player : CharacterBase {
 		for(;;) {
 			GetHungry (1);
 			yield return new WaitForSeconds(1.0f);
+			if (Hunger <= 0)
+				Die ();
+			Hunger = 100;
 		}
+	}
+
+	void Die()
+	{
+		Debug.Log ("Die");
+		animator.SetTrigger ("Die");
 	}
 }

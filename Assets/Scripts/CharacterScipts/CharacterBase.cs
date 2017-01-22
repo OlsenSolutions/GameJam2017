@@ -21,6 +21,7 @@ public class CharacterBase : MonoBehaviour, IClickable {
 			
 				SetSlider();
 
+
 			}
 			else
 			{
@@ -40,7 +41,10 @@ public class CharacterBase : MonoBehaviour, IClickable {
 
 	}
 
-	
+	public  void Die()
+	{
+		
+	}
 
 	
 	public void GetHungry(int n)
