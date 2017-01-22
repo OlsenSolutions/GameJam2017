@@ -1,26 +1,19 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CharacterScipts/ClickToMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Slider Menu - Free/Scripts/SliderMenu.cs">
     <Files>
-      <File FileName="Assets/Scripts/Managers/GameManager.cs" Line="50" Column="24" />
-      <File FileName="Assets/Scripts/CharacterScipts/Player.cs" Line="16" Column="39" />
-      <File FileName="Assets/Scripts/CharacterScipts/CharacterBase.cs" Line="5" Column="50" />
-      <File FileName="Assets/Scripts/CharacterScipts/ClickToMove.cs" Line="79" Column="29" />
-      <File FileName="Assets/Scripts/Environment/Tree.cs" Line="52" Column="24" />
-      <File FileName="Assets/Scripts/Supplies/Wood.cs" Line="19" Column="32" />
-      <File FileName="Assets/Scripts/Buildings/Ship.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/Interfaces/IStorable.cs" Line="7" Column="7" />
-      <File FileName="Assets/Scripts/Interfaces/IClickable.cs" Line="4" Column="1" />
-      <File FileName="Assets/Scripts/Supplies/Fish.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/CharacterScipts/ClickToMoveBackup.cs" Line="95" Column="46" />
-      <File FileName="Assets/Scripts/Managers/LoadLevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Interfaces/ICollectible.cs" Line="7" Column="11" />
+      <File FileName="Assets/Scripts/CharacterScipts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterScipts/CharacterBase.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CharacterScipts/ClickToMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Managers/ScoreManager.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/Managers/WaveTimeManager.cs" Line="19" Column="2" />
+      <File FileName="Assets/Scripts/Managers/LoadLevelManager.cs" Line="35" Column="35" />
+      <File FileName="Assets/Menus/Scripts/ApplicationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Slider Menu - Free/Scripts/SliderMenu.cs" Line="73" Column="48" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/developer/GameJam2017/Assets/Scripts/Environment/Tree.cs" line="35" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
