@@ -13,9 +13,12 @@ public class Player : CharacterBase {
 
 	void Start()
 	{
+		slider.gameObject.SetActive (false);
 		StartCoroutine (HungerStrikes ());
 		animator = GetComponent<Animator> ();
 	}
+
+
 
 	public IStorable Compartment
 	{
