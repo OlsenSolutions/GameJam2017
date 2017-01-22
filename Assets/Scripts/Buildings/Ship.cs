@@ -49,6 +49,9 @@ public class Ship : MonoBehaviour {
 			{
 				int id = Random.Range(0, addedPlanksGOs.Count);
 				notAddedPlanksGOs.Add(addedPlanksGOs[id]);
+				GameObject shotPlank = GameObject.Instantiate(addedPlanksGOs[id], addedPlanksGOs[id].transform.position, addedPlanksGOs[id].transform.rotation);
+				shotPlank.GetComponent<Rigidbody>().isKinematic = false;
+				shotPlank.GetComponent<Rigidbody>().AddExplosionForce(100f, shotPlank.transform.position + new Vector3(1, -0.1f, Random.Range(0, 0.3f)), 10);
 				addedPlanksGOs[id].SetActive(false);
 				addedPlanksGOs.RemoveAt(id);
 			}
