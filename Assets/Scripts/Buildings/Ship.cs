@@ -51,7 +51,7 @@ public class Ship : MonoBehaviour {
 				notAddedPlanksGOs.Add(addedPlanksGOs[id]);
 				GameObject shotPlank = GameObject.Instantiate(addedPlanksGOs[id], addedPlanksGOs[id].transform.position, addedPlanksGOs[id].transform.rotation);
 				shotPlank.GetComponent<Rigidbody>().isKinematic = false;
-				shotPlank.GetComponent<Rigidbody>().AddExplosionForce(700f, shotPlank.transform.position + new Vector3(Random.Range(0, 0.3f), -0.1f, -10), 30);
+				shotPlank.GetComponent<Rigidbody>().AddExplosionForce(700f, shotPlank.transform.position + new Vector3(Random.Range(0, 0.3f), -0.01f, -10), 30);
 				StartCoroutine("DestroyGO", shotPlank);
 				addedPlanksGOs[id].SetActive(false);
 				addedPlanksGOs.RemoveAt(id);
@@ -64,7 +64,7 @@ public class Ship : MonoBehaviour {
 	IEnumerator DestroyGO(GameObject obj)
 	{
 		
-		yield return new WaitForSeconds(5f);
+		yield return new WaitForSeconds(30f);
 		GameObject.Destroy(obj);
 	}
 }

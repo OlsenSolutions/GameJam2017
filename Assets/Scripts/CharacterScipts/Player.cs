@@ -9,7 +9,7 @@ public class Player : CharacterBase {
 	private IStorable compartment;
 	public Image Container;
 	public Animator animator;
-	private int hungerRate=3;
+	private int hungerRate=1;
 
 
 	public Transform itemHandle;

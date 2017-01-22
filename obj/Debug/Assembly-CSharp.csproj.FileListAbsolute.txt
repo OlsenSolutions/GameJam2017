@@ -27,7 +27,3 @@ D:\Iabulko\Projekty\Unity\GameJamStyczen2017\Temp\bin\Debug\UnityEngine.VR.xml
 D:\Iabulko\Projekty\Unity\GameJamStyczen2017\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\Iabulko\Projekty\Unity\GameJamStyczen2017\obj\Debug\Assembly-CSharp.dll
 D:\Iabulko\Projekty\Unity\GameJamStyczen2017\obj\Debug\Assembly-CSharp.pdb
-D:\Iabulko\Projekty\Unity\GameJamStyczen2017\Temp\bin\Debug\UnityEngine.Advertisements.dll
-D:\Iabulko\Projekty\Unity\GameJamStyczen2017\Temp\bin\Debug\UnityEngine.Purchasing.dll
-D:\Iabulko\Projekty\Unity\GameJamStyczen2017\Temp\bin\Debug\UnityEngine.Advertisements.xml
-D:\Iabulko\Projekty\Unity\GameJamStyczen2017\Temp\bin\Debug\UnityEngine.Purchasing.xml
