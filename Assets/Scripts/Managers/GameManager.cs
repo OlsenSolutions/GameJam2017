@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public  class GameManager : MonoBehaviour {
 
+
 	void Awake()
 	{
 		
@@ -25,6 +26,12 @@ public  class GameManager : MonoBehaviour {
 			
 			timeToNextWave -= Time.deltaTime;
 			timecounter.text = ((int)timeToNextWave).ToString ();
+
+			if (timeToNextWave <= 4 && !waveMoveStarted)
+			{
+				waveMoveStarted = true;
+				StartCoroutine("StartWaveMove");
+			}
 
 			if (timeToNextWave <= 0) {
 				Wave ();
@@ -77,6 +84,8 @@ public  class GameManager : MonoBehaviour {
 	public float timeBetweenWaves = 5.0f;
 	public GameObject playerPrefab;
 	public Slider lifeSlider;
+	private bool waveMoveStarted = false;
+
 
 	public Player SelectedPlayer
 	{
@@ -129,6 +138,21 @@ public  class GameManager : MonoBehaviour {
 		timeToNextWave = 60.0f;
 		//ship.planksAddedNumber = -5;
 		Instantiate(playerPrefab,new Vector3(-40,-1,5), Quaternion.identity);
+	}
+
+	IEnumerator StartWaveMove()
+	{
+		Transform wave = transform.Find("/Wave");
+		Vector3 waveStartPos = wave.position;
+
+		float startTime = Time.time;
+
+		while (Time.time - startTime <= 10)
+		{
+			wave.position = waveStartPos + new Vector3(0, 0, (Time.time - startTime) * 40);
+
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 	public void GameOver()
