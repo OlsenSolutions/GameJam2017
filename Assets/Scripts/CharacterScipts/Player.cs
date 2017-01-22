@@ -9,6 +9,8 @@ public class Player : CharacterBase {
 	public Image Container;
 	public Animator animator;
 
+	public Transform itemHandle;
+
 	void Start()
 	{
 		StartCoroutine (HungerStrikes ());

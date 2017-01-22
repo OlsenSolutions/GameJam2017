@@ -47,7 +47,7 @@ public  class GameManager : MonoBehaviour {
 	private int wood=0;
 	public int waveNumber=0;
 	public int boatPlanks =0;
-	public Player player;
+	public Player selectedPlayer;
 	public IClickable selected;
 	public Ship ship;
 	public GameObject wave;
@@ -63,7 +63,7 @@ public  class GameManager : MonoBehaviour {
 			if (value > ship.maxPlanksNumber)
 				value = ship.maxPlanksNumber;
 			wood = value;
-			ship.planksAddedNumber = wood;
+			ship.planksAddedNumber=value;
 
 		}
 	}
@@ -90,7 +90,8 @@ public  class GameManager : MonoBehaviour {
 			Tree t = trees[i] ;
 			t.Reset ();
 		}
-		ship.planksAddedNumber = -5;
+		GameManager.instance.Wood -= 5;
+		//ship.planksAddedNumber = -5;
 	}
 
 

@@ -74,6 +74,8 @@ ModelImporter:
     100132: Male_001
     100134: Axe
     100136: FishingRod
+    100138: Plane
+    100140: Planks
     400000: chest
     400002: f_index_01_L
     400004: f_index_01_R
@@ -143,16 +145,24 @@ ModelImporter:
     400132: Male_001
     400134: Axe
     400136: FishingRod
+    400138: Plane
+    400140: Planks
     2300000: Male_001
     2300002: Axe
     2300004: FishingRod
+    2300006: Plane
+    2300008: Planks
     3300000: Male_001
     3300002: Axe
     3300004: FishingRod
+    3300006: Plane
+    3300008: Planks
     4300000: RPG-Character-Mesh
     4300002: Male_001
     4300004: FishingRod
     4300006: Axe
+    4300008: Plane
+    4300010: Planks
     7400000: Default Take
     9500000: //RootNode
     13700000: RPG-Character-Mesh

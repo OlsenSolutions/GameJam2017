@@ -5495,6 +5495,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 4866760244935078, guid: a3f2ff47d27dc594fa0671e801b4dc43, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.64137614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866760244935078, guid: a3f2ff47d27dc594fa0671e801b4dc43, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.6413784
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866760244935078, guid: a3f2ff47d27dc594fa0671e801b4dc43, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.2977143
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866760244935078, guid: a3f2ff47d27dc594fa0671e801b4dc43, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.29771894
+      objectReference: {fileID: 0}
     - target: {fileID: 224054289348151216, guid: a3f2ff47d27dc594fa0671e801b4dc43,
         type: 2}
       propertyPath: m_AnchorMax.x
@@ -9079,7 +9095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveNumber: 0
   boatPlanks: 0
-  player: {fileID: 356340383}
+  selectedPlayer: {fileID: 356340383}
   ship: {fileID: 1531574840}
   wave: {fileID: 0}
   timeToNextWave: 30
