@@ -21,6 +21,9 @@ GameObject:
   - component: {fileID: 4340702162440946}
   - component: {fileID: 33591525473798586}
   - component: {fileID: 23328628804929314}
+  - component: {fileID: 114987511236068338}
+  - component: {fileID: 65295520679866172}
+  - component: {fileID: 114321685556388352}
   m_Layer: 0
   m_Name: Conifer
   m_TagString: Obstacle
@@ -80,3 +83,39 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089471005541384}
   m_Mesh: {fileID: 4300000, guid: bb7af1ff296f4704c85d108c986c7d7c, type: 3}
+--- !u!65 &65295520679866172
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089471005541384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.113694, y: 7.356635, z: 2.44068}
+  m_Center: {x: -1.056847, y: 3.6783175, z: -1.22034}
+--- !u!114 &114321685556388352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089471005541384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5804e59616df14157a4a82d037ed6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114987511236068338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089471005541384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcd3ac8c73aa6048a10d603b85c20e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFullyGrown: 0
+  growthTimePassed: 0

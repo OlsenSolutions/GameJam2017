@@ -11,7 +11,7 @@ public class Fish :  MonoBehaviour, ICollectible, IClickable  {
 
 	public void Collect()
 	{
-		GameObject.Destroy (this.gameObject);
+		//GameObject.Destroy (this.gameObject);
 
 	}
 
