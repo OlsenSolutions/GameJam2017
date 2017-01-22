@@ -52756,8 +52756,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c59b4d285d6e43c595b80cd8998f724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoom: 10
   target: {fileID: 356340381}
   smoothing: 5
+  camHeigth: 10
 --- !u!81 &1339400603
 AudioListener:
   m_ObjectHideFlags: 0

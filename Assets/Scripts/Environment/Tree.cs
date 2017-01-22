@@ -25,9 +25,12 @@ public class Tree : MonoBehaviour {
 		growthTime=Random.Range (80.0f, 100.0f);
 		stagesPrefab = transform.Find("Stages");
 
-		for (int i = 0; i < stagesPrefab.childCount; i++)
+		if (stagesPrefab != null)
 		{
-			treeStages.Add(stagesPrefab.Find((i+1).ToString()).gameObject);
+			for (int i = 0; i < stagesPrefab.childCount; i++)
+			{
+				treeStages.Add(stagesPrefab.Find((i + 1).ToString()).gameObject);
+			}
 		}
 	}
 
