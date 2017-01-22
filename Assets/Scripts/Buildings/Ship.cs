@@ -51,12 +51,20 @@ public class Ship : MonoBehaviour {
 				notAddedPlanksGOs.Add(addedPlanksGOs[id]);
 				GameObject shotPlank = GameObject.Instantiate(addedPlanksGOs[id], addedPlanksGOs[id].transform.position, addedPlanksGOs[id].transform.rotation);
 				shotPlank.GetComponent<Rigidbody>().isKinematic = false;
-				shotPlank.GetComponent<Rigidbody>().AddExplosionForce(100f, shotPlank.transform.position + new Vector3(1, -0.1f, Random.Range(0, 0.3f)), 10);
+				shotPlank.GetComponent<Rigidbody>().AddExplosionForce(700f, shotPlank.transform.position + new Vector3(Random.Range(0, 0.3f), -0.1f, -10), 30);
+				StartCoroutine("DestroyGO", shotPlank);
 				addedPlanksGOs[id].SetActive(false);
 				addedPlanksGOs.RemoveAt(id);
 			}
 		}
 
 		lastPlanksAddedNumber = planksAddedNumber;
+	}
+
+	IEnumerator DestroyGO(GameObject obj)
+	{
+		
+		yield return new WaitForSeconds(5f);
+		GameObject.Destroy(obj);
 	}
 }
