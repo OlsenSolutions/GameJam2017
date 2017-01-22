@@ -163,9 +163,12 @@ namespace CompleteProject
 								navMeshAgent.Resume();
 								distanceToTarget = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
 								if (distanceToTarget < StoreDistance)
-								{
-									(GameManager.Instance.SelectedPlayer.Compartment as IStorable).Store();
-									GameManager.Instance.SelectedPlayer.Compartment = null;
+								{	
+
+
+
+									(gameObject.GetComponent<Player>().Compartment as IStorable).Store();
+									gameObject.GetComponent<Player>().Compartment = null;
 									navMeshAgent.Stop();
 									ClearHandItem();
 									anim.SetBool("Carry", false);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CompleteProject;
 
 public class Player : CharacterBase {
 
@@ -42,8 +43,41 @@ public class Player : CharacterBase {
 	IEnumerator HungerStrikes()
 	{
 		for(;;) {
-			GetHungry (1);
+			GetHungry (5);
 			yield return new WaitForSeconds(1.0f);
+			if (Hunger <= 0) {
+				Die ();
+				Hunger = 100;
+			}
 		}
+	}
+
+	void Die()
+	{
+		Debug.Log ("Die");
+		ResetAnimations ();
+		animator.SetTrigger ("Die");
+		GameManager.Instance.SelectedPlayer = null;
+		foreach (Player p in FindObjectsOfType<Player>()) {
+			if (p != this) {
+				GameManager.Instance.SelectedPlayer = this;
+			}
+		}
+		if (GameManager.Instance.SelectedPlayer == null) {
+			GameManager.Instance.GameOver ();
+		} else {
+			Destroy (GetComponent<ClickToMove> ());
+			Destroy (this);
+
+		}
+	}
+
+	void ResetAnimations()
+	{
+		animator.SetBool("Walking", false);
+		animator.SetBool("Idle", false);
+		animator.SetBool("Chopping", false);
+		animator.SetBool("Fishing", false);
+		//anim.SetBool ("Carry", false);
 	}
 }

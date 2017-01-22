@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CompleteProject;
 
 public  class GameManager : MonoBehaviour {
 
@@ -63,6 +64,8 @@ public  class GameManager : MonoBehaviour {
 			selectedPlayer.slider.gameObject.SetActive(false);
 			selectedPlayer = value;
 			selectedPlayer.slider.gameObject.SetActive(true);
+			GameObject.FindObjectOfType<CameraFollow> ().target = selectedPlayer.transform;
+
 
 		}
 	}
@@ -106,6 +109,14 @@ public  class GameManager : MonoBehaviour {
 		GameManager.instance.Wood -= 5;
 		//ship.planksAddedNumber = -5;
 	}
+
+	public void GameOver()
+
+	{
+
+	}
+
+
 
 
 
