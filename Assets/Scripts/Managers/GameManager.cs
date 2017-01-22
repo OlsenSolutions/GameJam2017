@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using CompleteProject;
+using UnityEngine.SceneManagement;
 
 public  class GameManager : MonoBehaviour {
 
@@ -14,11 +16,24 @@ public  class GameManager : MonoBehaviour {
 
 	void Update()
 	{
+
+
+		woodCounter.text = ship.planksAddedNumber.ToString ();
 		if (timePassing) {
+			
 			timeToNextWave -= Time.deltaTime;
+			timecounter.text = ((int)timeToNextWave).ToString ();
+
 			if (timeToNextWave <= 0) {
 				Wave ();
 
+
+			}
+		} else {
+			timeBetweenWaves -= Time.deltaTime;
+			if (timeBetweenWaves <= 0) {
+				timePassing = true;
+				timeBetweenWaves = 5.0f;
 
 			}
 		}
@@ -55,16 +70,22 @@ public  class GameManager : MonoBehaviour {
 	public GameObject wave;
 	public float timeToNextWave=30;
 	public bool timePassing=true;
-
+	public Text timecounter;
+	public Text woodCounter;
+	public float timeBetweenWaves = 5.0f;
 
 	public Player SelectedPlayer
 	{
 		get{ return selectedPlayer;}
 		set{
-			selectedPlayer.slider.gameObject.SetActive(false);
-			selectedPlayer = value;
-			selectedPlayer.slider.gameObject.SetActive(true);
-			GameObject.FindObjectOfType<CameraFollow> ().target = selectedPlayer.transform;
+			if (selectedPlayer != null) {
+				selectedPlayer.slider.gameObject.SetActive (false);
+				selectedPlayer = value;
+				selectedPlayer.slider.gameObject.SetActive (true);
+				GameObject.FindObjectOfType<CameraFollow> ().target = selectedPlayer.transform;
+			} else {
+				//foreach(Player p in )
+			}
 
 
 		}
@@ -107,13 +128,16 @@ public  class GameManager : MonoBehaviour {
 			t.Reset ();
 		}
 		GameManager.instance.Wood -= 5;
+		timeToNextWave = 30.0f;
 		//ship.planksAddedNumber = -5;
 	}
 
 	public void GameOver()
 
 	{
-
+		Debug.Log ("GameOver");
+		SceneManager.LoadScene ("Menu");
+		//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
 
