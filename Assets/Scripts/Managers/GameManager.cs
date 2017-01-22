@@ -25,7 +25,7 @@ public  class GameManager : MonoBehaviour {
 
 	void Start()
 	{
-		
+		selectedPlayer.slider.gameObject.SetActive (true);
 	}
 
 	private static GameManager instance;
@@ -47,12 +47,25 @@ public  class GameManager : MonoBehaviour {
 	private int wood=0;
 	public int waveNumber=0;
 	public int boatPlanks =0;
-	public Player selectedPlayer;
+	[SerializeField]
+	private Player selectedPlayer;
 	public IClickable selected;
 	public Ship ship;
 	public GameObject wave;
 	public float timeToNextWave=30;
 	public bool timePassing=true;
+
+
+	public Player SelectedPlayer
+	{
+		get{ return selectedPlayer;}
+		set{
+			selectedPlayer.slider.gameObject.SetActive(false);
+			selectedPlayer = value;
+			selectedPlayer.slider.gameObject.SetActive(true);
+
+		}
+	}
 
 	public int Wood
 	{

@@ -28,4 +28,11 @@ public class LoadLevelManager : MonoBehaviour {
 		Application.LoadLevel ("menu");
 
 	}
+
+	public void LoadLevelTutorial ()
+
+	{
+		Application.LoadLevel ("tutorial");
+
+	}
 }
