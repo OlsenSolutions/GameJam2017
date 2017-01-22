@@ -7,6 +7,7 @@ namespace CompleteProject
 
 	public class ClickToMove : MonoBehaviour
 	{
+		public bool isWorking = false;
 
 		public string resourceToCarryName = "";
 		private Animator anim;
@@ -18,7 +19,7 @@ namespace CompleteProject
 		private bool enemyClicked;
 		public float distanceToTarget = 0;
 		public ICollectible targetCollectible;
-		public ICollectible resourceBeingCollected;
+		public IStorable resourceBeingCollected;
 		public GameObject targetStore;
 		public float gatherWoodDistance = 3;
 		public float FishingDistance = 6;
@@ -41,13 +42,36 @@ namespace CompleteProject
 			navMeshAgent = GetComponent<NavMeshAgent>();
 		}
 
+		private IEnumerator WaitForEndOfWork()
+		{
+			isWorking = true;
+			float timeToComplete = 3f;
+			float startTime = Time.time;
+
+			while (Time.time - startTime < timeToComplete)
+			{
+				if (isWorking)
+					yield return new WaitForEndOfFrame();
+				else
+					break;
+			}
+			ClearHandItem();
+			if(Time.time - startTime >= timeToComplete)
+				GatherResourcesWhenActionEnded();
+		}
+
+		public void StartWork()
+		{
+			StartCoroutine("WaitForEndOfWork");
+		}
+
 		public void GatherResourcesWhenActionEnded()
 		{
-			GetComponent<Player>().Compartment = resourceBeingCollected as IStorable;
+			GetComponent<Player>().Compartment = resourceBeingCollected;
 			resourceToCarryName = "Planks";
 			if (anim.GetBool("Chopping"))
 			{
-				GetComponent<Player>().Compartment = resourceBeingCollected as IStorable;
+				GetComponent<Player>().Compartment = resourceBeingCollected;
 				resourceToCarryName = "Planks";
 			}
 			else if (anim.GetBool("Fishing"))
@@ -56,7 +80,7 @@ namespace CompleteProject
 			ResetAnimations();
 			anim.SetBool("Carry", true);
 
-			resourceBeingCollected.Collect();
+			//resourceBeingCollected.Collect();
 			resourceBeingCollected = null;
 			targetCollectible = null;
 		}
@@ -64,7 +88,7 @@ namespace CompleteProject
 		// Update is called once per frame
 		void Update()
 		{
-			if (GameManager.Instance.selectedPlayer == this.gameObject.GetComponent<Player>())
+			if (GameManager.Instance.SelectedPlayer == this.gameObject.GetComponent<Player>())
 			{
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 				RaycastHit hit;
@@ -76,11 +100,12 @@ namespace CompleteProject
 						Debug.Log(hit.collider.gameObject.name);
 						if (hit.collider.CompareTag("Player"))
 						{
-							GameManager.Instance.selectedPlayer = hit.collider.gameObject.GetComponent<Player>();
-
+							GameManager.Instance.SelectedPlayer = hit.collider.gameObject.GetComponent<Player>();
 						}
 						else if (hit.collider.CompareTag("Ground"))
 						{
+							isWorking = false;
+
 							navMeshAgent.destination = hit.point;
 							navMeshAgent.Resume();
 							ResetAnimations();
@@ -92,7 +117,8 @@ namespace CompleteProject
 						}
 						else if (hit.collider.CompareTag("Fish"))
 						{
-							
+							isWorking = false;
+
 							navMeshAgent.destination = hit.point;
 							navMeshAgent.Resume();
 							distanceToTarget = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
@@ -108,7 +134,9 @@ namespace CompleteProject
 						}
 						else if (hit.collider.CompareTag("Tree"))
 						{
-							if (GameManager.Instance.selectedPlayer.Compartment == null)
+							isWorking = false;
+
+							if (GameManager.Instance.SelectedPlayer.Compartment == null)
 							{
 								navMeshAgent.destination = hit.point;
 								navMeshAgent.Resume();
@@ -125,23 +153,25 @@ namespace CompleteProject
 						}
 						else if (hit.collider.CompareTag("Storage"))
 						{
-							if (GameManager.Instance.selectedPlayer.Compartment != null)
+							isWorking = false;
+
+							if (GameManager.Instance.SelectedPlayer.Compartment != null)
 							{
 								navMeshAgent.destination = hit.point;
 								navMeshAgent.Resume();
 								distanceToTarget = Vector3.Distance(gameObject.transform.position, hit.collider.gameObject.transform.position);
 								if (distanceToTarget < StoreDistance)
 								{
-									(GameManager.Instance.selectedPlayer.Compartment as IStorable).Store();
-									GameManager.Instance.selectedPlayer.Compartment = null;
+									(GameManager.Instance.SelectedPlayer.Compartment as IStorable).Store();
+									GameManager.Instance.SelectedPlayer.Compartment = null;
 									navMeshAgent.Stop();
+									ClearHandItem();
+									anim.SetBool("Carry", false);
 								}
 								else
 								{
 									targetStore = hit.collider.gameObject;
-
 								}
-							
 							}
 						}
 					}
@@ -179,7 +209,7 @@ namespace CompleteProject
 				{
 					if (distanceToTarget < FishingDistance)
 					{
-						resourceBeingCollected = targetCollectible;
+						resourceBeingCollected = targetCollectible as IStorable;
 						ResetAnimations();
 						anim.SetBool("Fishing", true);
 						navMeshAgent.Stop();
@@ -189,7 +219,7 @@ namespace CompleteProject
 				{
 					if (distanceToTarget < gatherWoodDistance)
 					{
-						resourceBeingCollected = targetCollectible;
+						resourceBeingCollected = targetCollectible as IStorable;
 						ResetAnimations();
 						anim.SetBool("Chopping", true);
 						navMeshAgent.Stop();
@@ -203,7 +233,9 @@ namespace CompleteProject
 				{
 					targetStore = null;
 					navMeshAgent.Stop();
-					GameManager.Instance.selectedPlayer.Compartment.Store();
+					GameManager.Instance.SelectedPlayer.Compartment.Store();
+					ClearHandItem();
+					anim.SetBool("Carry", false);
 				}
 			}
 
@@ -225,6 +257,14 @@ namespace CompleteProject
 
 			anim.SetBool ("IsWalking", walking);
 			*/
+		}
+
+		public void ClearHandItem()
+		{
+			for (int i = 0; i < GameManager.Instance.SelectedPlayer.itemHandle.childCount; i++)
+			{
+				GameManager.Instance.SelectedPlayer.itemHandle.GetChild(i).gameObject.SetActive(false);
+			}
 		}
 	}
 }
