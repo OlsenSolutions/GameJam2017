@@ -77,7 +77,9 @@ namespace CompleteProject
 			}
 			else if (anim.GetBool("Fishing"))
 			{
+				Debug.Log ("GatherResourcesWhenActionEnded: Fishes");
 				GetComponent<Player>().Hunger += 50;
+				Destroy ((targetCollectible as Fish).gameObject);
 			}
 			ResetAnimations();
 

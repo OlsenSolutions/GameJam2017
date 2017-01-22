@@ -43,7 +43,7 @@ public class Player : CharacterBase {
 	IEnumerator HungerStrikes()
 	{
 		for(;;) {
-			GetHungry (5);
+			GetHungry (2);
 			yield return new WaitForSeconds(1.0f);
 			if (Hunger <= 0) {
 				Die ();
@@ -52,19 +52,23 @@ public class Player : CharacterBase {
 		}
 	}
 
-	void Die()
+	new void Die()
 	{
 		Debug.Log ("Die");
+		GameManager.Instance.GameOver ();
+		return;
 		ResetAnimations ();
 		animator.SetTrigger ("Die");
 		GameManager.Instance.SelectedPlayer = null;
 		foreach (Player p in FindObjectsOfType<Player>()) {
 			if (p != this) {
-				GameManager.Instance.SelectedPlayer = this;
+				GameManager.Instance.SelectedPlayer = p;
 			}
 		}
 		if (GameManager.Instance.SelectedPlayer == null) {
 			GameManager.Instance.GameOver ();
+			Destroy (GetComponent<ClickToMove> ());
+			Destroy (this);
 		} else {
 			Destroy (GetComponent<ClickToMove> ());
 			Destroy (this);
