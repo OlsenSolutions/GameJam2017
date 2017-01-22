@@ -110,6 +110,14 @@ public  class GameManager : MonoBehaviour {
 		//ship.planksAddedNumber = -5;
 	}
 
+	public void GameOver()
+
+	{
+
+	}
+
+
+
 
 
 }
